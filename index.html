@@ -1,0 +1,1473 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>巡空鸟(XKN.COM)-综合性的网上交流学习中心-万年历</title>
+  <meta name="description" content="巡空鸟是一个交流学习类网站。网站主要定位：生活中各学科行业的资料汇总以及将其分类整理，同时也为爱好者提供一个互相学习探讨的论坛。">
+  <meta name="keywords" content="研究,学习,交流,讨论,社区,think-on-net,thinkonnet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+  <style type="text/css">
+  /*默认样式修正，不同浏览器的兼容问题，以及统一字体等。*/
+  body,img,ul,ol,li,p {
+    margin: 0px;
+    padding: 0px;
+  }
+  html {
+    font-family: \5FAE\8F6F\96C5\9ED1; /*微软雅黑*/
+    text-align: center;
+    color: #3C3C3C; /*网页整体字体颜色通常不用纯黑色，而用淡灰色*/
+    line-height: 1.12; /*在对页面整体设置行高时，请务必设置成固定倍率而非具体的px值，否则可能会发生因为不同元素的字体尺寸不同而排版错误。*/
+  }
+  textarea {
+    resize: none; /*除IE外的浏览器中文本域默认是可以调整大小的，应取消。*/
+  }
+  ul {
+    list-style: none;
+  }
+  hr {
+    margin: 8px auto; 
+  }
+  input {
+    padding: 3px 10px;
+  }
+  input[type="text"] {
+    padding: 3px 0px;
+  }
+
+  /*修复当父元素中只有浮动元素且没有设置高度时浮动元素会溢出的问题，在末尾添加一个清除左右浮动的0高度伪元素。为了通用，即便是其中有正常元素的盒子，也统一设置了该修正。*/
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+  /*IE6,7低版本的修正方式*/
+  .clearfix {
+    *zoom: 1;
+  }
+  /*网站通用的顶部主盒子*/
+  .header { 
+    margin: 0px auto;
+  	height: 36px;
+    width: 100%;
+  	background-color: #0088AA;
+    position: fixed;
+    top: 0px;
+  }
+  .header_center {
+  	margin: 0px auto;
+  	width: 1180px;
+    text-align: right;
+  }
+  .header_center>ul>li{
+    display: inline-block;
+  }
+  .header_tomainpage {	
+  	float: left;
+  }
+  .header_tomainpage>a>img {  
+    height: 60px;
+    width: 120px;
+  }
+  .header_button {
+   	width: 80px;
+  	height: 36px;
+  	background:	#0088AA;
+    text-align: center;
+    font-size: 15px;
+    border-style:none;
+  }
+  .header_button:hover{
+    background: #93F;
+  }
+  .header_button>a {
+    color: #FFFFFF;  
+    cursor: pointer;  
+    line-height: 36px;  
+  }
+
+  /*网站通用的底部主盒子，此处暂无内容*/
+  .footer {
+    margin: 0px auto;
+  }
+
+  /*包含当前页面主体内容的主盒子*/
+  .container {
+  	text-align: center;	
+  	margin: 0px auto;
+  	height: auto;
+  	width: 1180px; 
+    margin-top: 36px;
+  }
+  /*当前页面的横幅和时间的盒子*/
+  .container_top {
+  	margin: 0px auto;
+  	height: 60px;
+  }
+  .time {
+  	float: right;
+  	height: 60px;
+  	width: 240px;
+    font-weight: bolder;
+    line-height: 30px
+  }
+  .time>p:first-child {
+    color:#60C;
+  }
+  .time>p:last-child {
+    color:#00F;
+  }
+
+  .banner {
+  	margin: 0px auto;
+  	height: 60px;
+  	width: 480px;
+  }
+  /*主万年历盒子*/
+  .maincalendar {
+  	margin: 0px auto;
+  	height: auto;
+  	width: 1180px;
+  	border: 4px solid #0088AA;
+  	border-radius: 6px;
+    box-shadow: 2px 0 2px rgba(143,191,191,0.4);
+  }
+  /*左侧年份盒子*/
+  .maincalendar_leftyearbox {
+  	height: 412px;
+    width: 260px;  
+    padding: 20px;
+  	float: left;
+    border-width: 3px;
+  	border-right-style: solid;
+  	border-right-color: #0088AA;
+  	background-color: #F90;
+  }
+  .yearsquare {
+    margin: 0px auto;
+    height: 85px;
+    width: 180px;
+    font-family: \9ED1\4F53;
+    font-size: 80px;
+    color: #FFF;
+    background-color: #69C;
+    font-weight: bolder;
+    border-width: 2px;
+    border-style: outset;
+    border-radius: 4px;
+  }
+  .lichun {
+    color: #666;
+  }
+  .shengxiao {
+    font-weight: bolder;
+    font-family: \5E7C\5706;
+  }
+  .shengxiao>span:nth-child(3), .shengxiao>span:nth-child(5){
+    font-size: 22px;
+    color: #F63;  
+    font-weight: normal;
+  }
+  .shengxiao>pan:nth-child(4) {
+    font-size: 20px;
+    color: #60C;
+  }
+  .jieqi {
+    text-align: left;
+    color:#666;
+  }
+  /*右侧日期盒子*/
+  .maincalendar_rightdatebox {
+    height: 412px;
+    width: 260px;  
+    padding: 20px;
+  	float: right;
+    border-width: 3px;
+  	border-left-style: solid;
+  	border-left-color: #0088AA;
+  	background-color: #F93;
+  }
+  .datesquare {
+    margin: 0px auto;
+    height: 145px;
+    width: 165px;
+    font-family: \9ED1\4F53;
+    font-size: 140px;
+    background-color: #6FF;
+    font-weight: bolder;
+    color: #FFF;
+    border-width: 2px;
+    border-style: outset;
+    border-radius: 4px;
+  }
+  .jieri {
+    text-align: left;
+  }
+  .jieri>p:first-child>span:first-child {
+    color:#00F;
+  }
+  .jieri>p:first-child>span:last-child {
+    color:#F00;
+  }
+  .jieri>p:last-child>span:first-child {
+    color:#360;
+  }
+  .jieri>p:last-child>span:last-child {
+    color:#F3F;
+  }
+  .yuexiang {
+    display: inline-block;
+    position: relative;
+    background-color: #FFF;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+  .yuexiang>#noticeyuexiang {
+    background-color: #3C3C3C;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    left: -4px;
+  }
+  /*中间万年历日期盒子*/
+  .maincalendar_centerbox {
+    margin: 0px auto;
+    width: 574px;
+  }
+  /*搜索日期盒子*/
+  .searchdate {
+  	margin: 0px auto;
+  	height: 55px;
+  	width: 574px;
+    border-width: 3px;
+  	border-bottom-style: solid;
+  	border-bottom-color: #0088AA;
+  	background-color: #F90;
+  	padding-top: 5px;
+  }
+  .searchdate>select {
+    font-size:14px;
+  }
+  .searchdate>label {
+    font-size: 20px;
+    color: #00F;
+    font-weight: bolder;
+    font-family: \5E7C\5706;
+  }
+  .searchdate>input {
+    cursor:pointer;
+  }
+  .searchdate>#totoday {
+    font-weight: bold;
+    color: #60C;
+  }
+  /*万年历表格盒子*/
+  .calendartable{
+  	margin: 0px auto;
+  	height: auto;
+  	width: 574px;
+  }
+  .weekcell {
+    border:1px solid;
+  }
+  .daycell {
+  	border:1px solid #CCC;
+  	font-family: \9ED1\4F53;
+    padding: 1px;
+  }
+  .daycell:hover {
+  	background-color:#6FF;
+  }
+  .yangliday {
+  	margin:0px auto;
+  	height: 35px;	
+  	width: 78.85px;
+  	font-weight: 900;
+    font-size: 34px;
+  }
+  .nongliday {
+  	margin:0px auto;
+  	height: 23px;
+    width: 78.85px;
+  	font-size: 14px;
+  	color: #666;	
+  }
+
+  /*辅八字换算和备注盒子*/
+  .subcalendar {
+  	margin: 0px auto;
+  	width: 1180px;
+    border-width: 3px;
+  	border-right-style: solid;
+  	border-bottom-style: solid;
+  	border-left-style: solid;
+  	border-radius: 6px;
+  	border-color: #99CCCC;
+    box-shadow: 2px 0 2px rgba(143,191,191,0.4);
+  }
+  .subcalendar_datechange {
+  	height: 170px;
+  	width: 550px;
+  	color: #C60;
+  	float: left;
+    padding: 15px;
+  }
+  .subcalendar_instruction {
+  	height: 170px;
+  	width: 550px;
+  	font-size: 12px;
+  	text-align: left;
+  	color: #666;
+  	float: right;
+    padding: 15px;
+  }
+  .subcalendar_instruction>h3 {
+    color: #60C;
+    margin: 0px;
+    padding: 0px;
+  }
+  .subcalendar_instruction>p>span {
+    font-weight: bold;
+    color: #08A;
+  }
+  /*辅儒略转换盒子*/
+  .calendarchange {
+  	margin: 0px auto;
+    width: 1180px;
+    border-width: 3px;
+  	border-right-style: solid;
+  	border-bottom-style: solid;
+  	border-left-style: solid;
+  	border-radius: 6px;	
+  	border-color: #99CCCC;
+    box-shadow: 2px 2px 2px rgba(143,191,191,0.4);
+  }
+  .jdtogregorian {
+  	float: left;
+  	height: 120px;
+  	width: 550px;
+    padding: 15px;
+  }
+  .jddaychange {
+    float: right;
+    height: 120px;
+    width: 550px;
+    padding: 15px;
+  }
+  </style>
+</head>
+
+<body onLoad="searchtoday()">
+
+  <div class="header">
+    <div class="header_center clearfix">
+      <ul>
+        <li class="header_tomainpage"><a title="返回巡空鸟首页" href="mainpage.html" target="_blank"><img src="images/logo/skn-logo.png"/></a></li>
+        <li><input type="button" class="header_button" onclick="AddFavorite('巡空鸟','http://localhost/mainpage.html')" value="收藏本站"/></li>
+        <li><a href="https://www.baidu.com" target="_blank"><input class="header_button" type="button" value="进入论坛"/></a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="container_top clearfix">    
+      <div class="time">
+        <p>本机当前时间</p>
+        <p id="Ttoday"></p>
+      </div>
+      <div class="banner">万年历横幅</div>
+    </div>
+
+    <div class="maincalendar clearfix">
+
+      <div class="maincalendar_leftyearbox">
+        <p id="noticemainyear" class="yearsquare">????</p>
+        <div class="lichun">
+        <br/>
+          <p>立春时间</p>
+          <p id="nonticelichun">?</p>
+        </div>
+        <br/>
+        <p title="生肖主要的作用是迎合八字的天干地支而形象化的事物，而当前被用来为了表达农历的每年而用作农历的纪年方式。从传统的意义上，可以视作对农历年的表达。但从实际天文意义以及对出生之人性格的判断角度考虑，则应以公历立春为换年日。本处为避免混淆，而单纯以年份为为切换点表示，具体转换日请参考各年的立春和正月初一时间。">公历生肖（立春始）<br/>农历生肖（正月初一始）</p>
+        <br/>
+        <p class="shengxiao" title="生肖主要的作用是迎合八字的天干地支而形象化的事物，而当前被用来为了表达农历的每年而用作农历的纪年方式。从传统的意义上，可以视作对农历年的表达。但从实际天文意义以及对出生之人性格的判断角度考虑，则应以公历立春为换年日。本处为避免混淆，而单纯以年份为为切换点表示，具体转换日请参考各年的立春和正月初一时间。"><span id="noticeniangan"></span><span id="noticenianzhi"></span><span>【</span><span id="noticeshengxiao">?</span><span>】</span></p>
+        <br/>
+        <br/>
+        <div class="jieqi">
+          <p>春分时间：<span id="noticechunfen"></span></p><br/>
+          <p>夏至时间：<span id="noticexiazhi"></span></p><br/>
+          <p>秋分时间：<span id="noticeqiufen"></span></p><br/>
+          <p>冬至时间：<span id="noticedongzhi"></span></p>
+        </div>
+      </div>
+
+      <div class="maincalendar_rightdatebox">
+        <p><span id="noticeyear">????</span>年<span id="noticemonth">??</span>月</p>
+        <div id="noticedate" class="datesquare">??</div>
+        <br/>
+        <p>星期<span id="noticeweek">?</span></p>
+        <p>农历 <span id="noticenongli">正月初三 </span><span class="yuexiang"><span id="noticeyuexiang"></span></span></p>
+        <br/>
+        <table width="200" border="0" title="不同时辰，时的干支不同，本处只显示子时即当日0点的干支" style="margin:0px auto">
+          <tr>
+            <th scope="col">年</th>
+            <th scope="col">月</th>
+            <th scope="col">日</th>
+            <th scope="col">时</th>
+          </tr>
+          <tr style="text-align:center">
+            <td id="mainniangan">?</td>
+            <td id="mainyuegan">?</td>
+            <td id="mainrigan">?</td>
+            <td id="mainshigan">?</td>
+          </tr>
+          <tr style="text-align:center">
+            <td id="mainnianzhi">?</td>
+            <td id="mainyuezhi">?</td>
+            <td id="mainrizhi">?</td>
+            <td id="mainshizhi">子</td>
+          </tr>
+        </table>
+        <br/><br/>
+        <div class="jieri">
+          <p title="蓝色为节气，红色为农历传统节日">传统节日：<span>小寒</span> <span>春节</span></p>
+          <br/>
+          <p title="绿色为其他公众节日，紫色为国际节日">其他节日：<span>青年节</span> <span>圣诞节</span></p>
+        </div>
+      </div>
+
+      <div class="maincalendar_centerbox">
+
+        <div class="searchdate">
+          <label>万年历</label>
+          <br/>
+          <input id="lastyear" type="button" value="<<上年" onClick="searchlasty()">
+          <input id="lastmonth" type="button" value="<上月" onClick="searchlastm()">
+          <select id="searchyear" onChange="datelistjisuan()">
+            <script>
+              //使用循环输出年份选项
+              for(var i=1900;i<=2050;i++) {
+                document.write('<option value="'+i+'">'+i+'年</option>');
+              }
+            </script>            
+          </select>
+          <select id="searchmonth"  onChange="datelistjisuan()">
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4">4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
+            <option value="7">7月</option>
+            <option value="8">8月</option>
+            <option value="9">9月</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+          </select>
+          <input id="nextmonth" type="button" value="下月>" onClick="searchnextm()">
+          <input id="nextyear" type="button" value="下年>>" onClick="searchnexty()">
+          <input id="totoday" type="button" value="返回今日" onClick="searchtoday()">    
+        </div>
+
+        <div class="calendartable">
+          <table width="574" style="border-collapse:collapse;margin:0px auto">
+            <tr style="height:22px;background-color:#6FF">
+              <th scope="col" class="weekcell" style="color:#FF5151">日</th>
+              <th scope="col" class="weekcell">一</th>
+              <th scope="col" class="weekcell">二</th>
+              <th scope="col" class="weekcell">三</th>
+              <th scope="col" class="weekcell">四</th>
+              <th scope="col" class="weekcell">五</th>
+              <th scope="col" class="weekcell" style="color:#FF5151">六</th>
+            </tr>
+            <script>
+              //使用循环输出日期表格
+              for(var i=0;i<=5;i++) {
+                document.write('<tr height="60" style="cursor:pointer">');
+                for(var j=7*i+1;j<=7*i+7;j++){
+                  document.write('<td class="daycell" id="dt'+j+'" onClick="datexuanding(this)"><p id="yl'+j+'" class="yangliday">?</p><p id="nl'+j+'" class="nongliday">?</p></td>');
+                }
+                document.write('</tr>');
+              }
+            </script>   
+            
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="subcalendar clearfix">
+      <div class="subcalendar_datechange">
+        <select id="subgongyuan"  title="请选择公元前还是公元后">
+          <option value="0">公元后DC</option>
+          <option value="1">公元前BC</option>
+        </select>
+        <input type="text" size="4" maxlength="4" id="subyear" title="请输入1~9999的年份数字" onkeyup="this.value=this.value.replace(/\D/g,'')" onpaste="this.value=this.value.replace(/\D/g,'')"/> 年
+        <input type="text" size="2" maxlength="2" id="submonth" title="请输入1~12的月份数字" onkeyup="this.value=this.value.replace(/\D/g,'')" onpaste="this.value=this.value.replace(/\D/g,'')"/> 月
+        <input type="text" size="2" maxlength="2" id="subdate" title="请输入1~31的日期数字" onkeyup="this.value=this.value.replace(/\D/g,'')" onpaste="this.value=this.value.replace(/\D/g,'')"/> 日
+        <input type="text" size="2" maxlength="2" id="subhour" title="请输入0~23的小时数字（24小时制式）。" onkeyup="this.value=this.value.replace(/\D/g,'')" onpaste="this.value=this.value.replace(/\D/g,'')"/> 时
+        <input type="text" size="2" maxlength="2" id="submin" title="请输入0~59的分钟数字。" onkeyup="this.value=this.value.replace(/\D/g,'')" onpaste="this.value=this.value.replace(/\D/g,'')"/> 分<br/>
+        <hr style="width:380px"/>
+        <input type="button" value="将以上公历日期(基于GMT+8时区)转换为八字" onClick="changebazi()"><br/>
+        <hr style="width:380px"/>
+        <table id="subtable" width="200" border="0" style="margin:0px auto">
+          <tr>
+            <th scope="col">年</th>
+            <th scope="col">月</th>
+            <th scope="col">日</th>
+            <th scope="col">时</th>
+          </tr>
+          <tr style="text-align: center">
+            <td id="subniangan"></td>
+            <td id="subyuegan"></td>
+            <td id="subrigan"></td>
+            <td id="subshigan"></td>
+          </tr>
+          <tr style="text-align: center">
+            <td id="subnianzhi"></td>
+            <td id="subyuezhi"></td>
+            <td id="subrizhi"></td>
+            <td id="subshizhi"></td>
+          </tr>
+        </table>
+        <label id="waringlb" style="color:#F00;font-weight:bolder;font-size:14px"></label>    
+      </div>
+
+      <div class="subcalendar_instruction">
+        <h3>备注：</h3>
+        <p>
+          <span>[1]</span>因当今太阳历（格里高利历）的闰年计算方式，导致以该方式为基准的地球公转太阳年为365.2425日，而实际天文上太阳年为365.2422日，其存在误差为大约每3333年1天。但由于中国从1912年才开始使用当代公历，而之前古人之生辰年月皆以当时的天干地支或者农历日以当今公历转换而来，换算即存在误差，故只能将错就错，依然以365.2425为公历和天干地支转换为依据。故而节气时间在几千年前后偏移日趋增大是正常现象并非错误。<br/>
+          <span>[2]</span>八字换算以每年立春（而非农历初一）作为换年。本换算器以1984年的立春2月4日23点19分为基准点计算各年的节气时间（实际计算更为复杂，故可能存在误差）。<br/>
+          <span>[3]</span>以每月月首节气变换时间为换月。鼠标移向左侧八字处可显示12个月首节气时间。<br/>
+          <span>[4]</span>以每天子时中点（0点整）作为换日。故分前子时和后子时。<br/>
+          <span>[5]</span>左侧公历转换八字皆为格里历时间（基于GMT+8时区）。但由于时区和真太阳时与钟表时之间有一定的误差，再加上人类出生确切时间有一定的估算概念，故推算者应自行调节。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="calendarchange clearfix">
+      <div class="jdtogregorian">
+        <label style="font-size:14px;font-weight:bolder;color:#08A">儒略历：</label>
+        <select id="ruligongyuan"  title="请选择公元前还是公元后">
+          <option value="0">公元后DC</option>
+          <option value="1">公元前BC</option>
+        </select>
+        <input type="text" size="4" maxlength="4" id="ruliyear" title="请输入-4713年1月1日至1582年10月4日的儒略年份" onKeyUp="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 年
+        <input type="text" size="2" maxlength="2" id="rulimonth" title="请输入1~12的月份数字" onKeyUp="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 月
+        <input type="text" size="2" maxlength="2" id="rulidate" title="请输入1~31的日期数字" onKeyUp="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 日
+        <hr style="width:340px"/>
+        <input type="button" value="将以上儒略历日期转换为现代公历(格里高利历)日期" onClick="rulichange()"><br/><hr style="width:340px"/>
+        <label id="waringgelili" style="font-size:14px;font-weight:bolder;color:#60C">现代公历（格里历）</label>
+      </div>
+
+      <div class="jddaychange">
+        <label style="font-size:14px;font-weight:bolder;color:#090">儒略日（数）JD：</label>
+        <input type="text" size="8" maxlength="9" id="rulueri" title="请输入0~9999999.0的儒略日数" onKeyUp="this.value=this.value.replace(/[^\d.]/g,'')"  onafterpaste="this.value=this.value.replace(/[^\d.]/g,'')">
+        <hr style="width:240px"/>
+        <input type="button" value="将以上儒略数转换为儒略历和格里历" onClick="ruluerichange()"><br/><hr style="width:240px"/>
+        <label id="rulueritogelili" style="font-size:14px;font-weight:bolder;color:#60C">格里历</label><br/>
+        <label id="rulueritorulueli" style="font-size:14px;font-weight:bolder;color:#08A" title="儒略历截止至1852年10月4日（基于GMT+0时区），当日正午的JD为2299160，此日后一天为10月15日（因更换格里历调整误差而强制10月4日后一天为10月15日）">儒略历</label>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    setInterval(function(){Ttoday.innerText=new Date().toLocaleDateString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay())+' '+new Date().toLocaleTimeString()},1000)	
+  	var suoxuanyldate	
+  	var abc1=new Date(1984,2,4,23,18,44)-new Date(1983,2,4,17,39,42)
+  	var abc2=new Date(1984,2,19,19,16,13)-new Date(1983,2,19,13,30,34)
+  	var abc3=new Date(1984,3,5,17,24,39)-new Date(1983,3,6,11,47,12)
+  	var abc4=new Date(1983,4,5,16,44,23)-new Date(1983,3,21,12,38,44)
+  	var montharray=new Array(31,28,31,30,31,30,31,31,30,31,30,31)
+  		
+  	var nonglishuju=new Array(
+  "0x04bd8","0x04ae0","0x0a570","0x054d5","0x0d260","0x0d950","0x16554","0x056a0","0x09ad0","0x055d2",
+
+  "0x04ae0","0x0a5b6","0x0a4d0","0x0d250","0x1d255","0x0b540","0x0d6a0","0x0ada2","0x095b0","0x14977", 
+
+  "0x04970","0x0a4b0","0x0b4b5","0x06a50","0x06d40","0x1ab54","0x02b60","0x09570","0x052f2","0x04970", 
+
+  "0x06566","0x0d4a0","0x0ea50","0x06e95","0x05ad0","0x02b60","0x186e3","0x092e0","0x1c8d7","0x0c950", 
+
+  "0x0d4a0","0x1d8a6","0x0b550","0x056a0","0x1a5b4","0x025d0","0x092d0","0x0d2b2","0x0a950","0x0b557", 
+
+  "0x06ca0","0x0b550","0x15355","0x04da0","0x0a5d0","0x14573","0x052d0","0x0a9a8","0x0e950","0x06aa0", 
+
+  "0x0aea6","0x0ab50","0x04b60","0x0aae4","0x0a570","0x05260","0x0f263","0x0d950","0x05b57","0x056a0", 
+
+  "0x096d0","0x04dd5","0x04ad0","0x0a4d0","0x0d4d4","0x0d250","0x0d558","0x0b540","0x0b5a0","0x195a6", 
+
+  "0x095b0","0x049b0","0x0a974","0x0a4b0","0x0b27a","0x06a50","0x06d40","0x0af46","0x0ab60","0x09570", 
+
+  "0x04af5","0x04970","0x064b0","0x074a3","0x0ea50","0x06b58","0x055c0","0x0ab60","0x096d5","0x092e0", 
+
+  "0x0c960","0x0d954","0x0d4a0","0x0da50","0x07552","0x056a0","0x0abb7","0x025d0","0x092d0","0x0cab5", 
+
+  "0x0a950","0x0b4a0","0x0baa4","0x0ad50","0x055d9","0x04ba0","0x0a5b0","0x15176","0x052b0","0x0a930", 
+
+  "0x07954","0x06aa0","0x0ad50","0x05b52","0x04b60","0x0a6e6","0x0a4e0","0x0d260","0x0ea65","0x0d530", 
+
+  "0x05aa0","0x076a3","0x096d0","0x04bd7","0x04ad0","0x0a4d0","0x1d0b6","0x0d250","0x0d520","0x0dd45", 
+
+  "0x0b5a0","0x056d0","0x055b2","0x049b0","0x0a577","0x0a4b0","0x0aa50","0x1b255","0x06d20","0x0ada0","0x196e3")
+
+    function AddFavorite(title,url)//将该页添加进收藏夹。
+  	{
+      try{window.external.addFavorite(url,title);}
+      catch(e)
+  	  {
+          try{window.sidebar.addPanel(title,url,"");}
+          catch(e){alert("抱歉，因您所使用的浏览器的安全设置无法自动添加。\n\n请使用快捷键Ctrl+D进行手动添加。");}
+        }
+      }
+
+    function searchtoday()//翻转到今天日期的年月日。
+    {
+      var jintianyear=new Date().getFullYear();
+      var jintianmonth=new Date().getMonth();
+      var jintiandate=new Date().getDate();
+      document.getElementById("searchyear")[jintianyear-1900].selected=true;
+      document.getElementById("searchmonth")[jintianmonth].selected=true;
+      datelistjisuan();
+      suoxuanyldate=jintiandate;
+      daycellhuoqu();
+    }
+
+  	function searchlasty()//翻转到上一年。
+  	{
+  		var lastselyear=parseInt(document.getElementById("searchyear").value)-1900-1
+  		if(lastselyear>=0)
+      {
+      document.getElementById("searchyear")[lastselyear].selected=true	   
+  		datelistjisuan()
+  		daycellhuoqu()
+      }
+    }
+
+    function searchnexty()//翻转到下一年。
+    {
+      var nextselyear=parseInt(document.getElementById("searchyear").value)-1900+1
+      if(nextselyear<=150)
+      {
+      document.getElementById("searchyear")[nextselyear].selected=true
+      datelistjisuan()
+      daycellhuoqu()
+      }
+    }
+  	
+  	function searchlastm()//翻转到上一个月。
+  	{
+  		var lastselmonth=parseInt(document.getElementById("searchmonth").value)-2
+  		var lastselyear=parseInt(document.getElementById("searchyear").value)-1900-1
+  		if(lastselmonth>=0)
+  		{document.getElementById("searchmonth")[lastselmonth].selected=true}
+  	    else
+  		{
+  			if(lastselyear>=0)
+  			{document.getElementById("searchmonth")[11].selected=true
+  		   document.getElementById("searchyear")[lastselyear].selected=true}
+  			}
+  		datelistjisuan()		
+  		daycellhuoqu()		
+  	}
+  			
+  	function searchnextm()//翻转到下一个月。
+  	{
+  		var nextselmonth=parseInt(document.getElementById("searchmonth").value)
+  		var nextselyear=parseInt(document.getElementById("searchyear").value)-1900+1
+  		if(nextselmonth<=11)
+  		{document.getElementById("searchmonth")[nextselmonth].selected=true}
+  	    else
+  		{
+  			if(nextselyear<=150)
+  			{document.getElementById("searchmonth")[0].selected=true
+  		   document.getElementById("searchyear")[nextselyear].selected=true}
+  			}
+  		datelistjisuan()
+  		daycellhuoqu()
+  	}
+  		
+  	function datelistjisuan()//计算该月每格的公历和农历日期显示。
+  	{		
+  		var runnianjisuan4=parseInt(document.getElementById("searchyear").value)%4
+  		var runnianjisuan100=parseInt(document.getElementById("searchyear").value)%100
+  		var runnianjisuan400=parseInt(document.getElementById("searchyear").value)%400
+  		if(runnianjisuan4!=0)
+  		{var runnianjisuan=0}
+  		else
+  		{
+  			if(runnianjisuan100==0)
+  			    if(runnianjisuan400==0)
+  		        {var runnianjisuan=1}
+  		      else
+  			    {var runnianjisuan=0}
+  		    else
+  			{var runnianjisuan=1}
+  		}
+  	  if(runnianjisuan==0)
+  		{montharray[1]=28}
+  		else{montharray[1]=29}
+
+  		var dayxiangjian=(new Date(document.getElementById("searchyear").value,document.getElementById("searchmonth").value-1,1)-new Date(1900,0,1))/3600/24/1000 //获取该月1日与1900/1/1之间的日差值。
+  		var weekyushu=Math.floor(dayxiangjian%7) //获取该月1日与1900/1/1之间的日整除7的余数，用于计算该日在星期几（1900/1/1为星期一）。由于Firefox及部分浏览在设置1900及之前的日期时，会默认中国时区为GMT0805，而计算为GMT0800时，时间就要早343秒，故而1900年之后的日期与其相减会多343秒，但取余不会对小数点进行计算，故而即便不加floor函数也不影响计算结果。
+  		var b=1
+  		for(var a=weekyushu+2;a<=42;a++) //因为周一为第二格，所以当月1日要从第一行周余数+2的格子开始填，直到最后一行最后一格。
+  		 {
+  			 document.getElementById("yl"+a).innerText=b		 
+  			 document.getElementById("dt"+a).style.color=""
+  			 document.getElementById("yl"+a).style.color=""
+  			 document.getElementById("nl"+a).style.color="#666"
+  			 b++		   
+  		   if(b>montharray[document.getElementById("searchmonth").value-1])
+  		   {break}				
+  		 }
+      for(var mday=1;mday<37;mday=mday+7) //将所有星期日的格子变成红色。
+       {
+        document.getElementById("yl"+mday).style.color="#EA0000"
+        document.getElementById("nl"+mday).style.color="#666"
+       }
+      for(var sday=7;sday<43;sday=sday+7) //将所有星期六的格子变成红色。
+       {
+        document.getElementById("yl"+sday).style.color="#EA0000"
+        document.getElementById("nl"+sday).style.color="#666"
+       }
+
+  		var lastmonthpanduan=document.getElementById("searchmonth").value-2 //根据当前所选月的值-2，即为计算机中的上一个月的月份，获取该月的天数。如果小于0说明为上一年的12月（计算机中第11月），有31天。
+  		if(lastmonthpanduan<0) 
+  		{var d=31}
+  		else
+  		{var d=montharray[lastmonthpanduan]	}
+  		for(var c=weekyushu+1;c>0;c--) //从当月1日之前的一格开始反方向倒序填写上个月的日子，并加灰。
+  		{			
+  			document.getElementById("yl"+c).innerText=d
+  			document.getElementById("dt"+c).style.color="#CCC"	
+  			document.getElementById("yl"+c).style.color="#CCC"	
+  			document.getElementById("nl"+c).style.color="#CCC"	
+  			d--
+  		}
+
+  		var f=1
+  		var e=parseInt(montharray[document.getElementById("searchmonth").value-1])+weekyushu+2 //当月1日的格数+当月天数，即为下月1日开始的格数。
+  		for(;e<=42;e++) //从下月1日开始的格数，往后顺序填写日子，并加灰。
+  		{
+  		  document.getElementById("yl"+e).innerText=f
+  			document.getElementById("dt"+e).style.color="#CCC"
+  			document.getElementById("yl"+e).style.color="#CCC"	
+  			document.getElementById("nl"+e).style.color="#CCC"	
+  			f++
+  		}		
+  		
+  		for(var m=1;m<=42;m++)  //粗略计算当月表格内每日的农历，不精确，日后待修正。
+  		{			
+  			if(document.getElementById("dt"+m).style.color=="")
+  			{var mainyy2=new Date(document.getElementById("searchyear").value,document.getElementById("searchmonth").value-1,document.getElementById("yl"+m).innerText)-new Date(1900,0,1)}
+  			else
+  			{
+  				if(parseInt(document.getElementById("yl"+m).innerText)>=15)
+  			  {var mainyy2=new Date(document.getElementById("searchyear").value,document.getElementById("searchmonth").value-2,document.getElementById("yl"+m).innerText)-new Date(1900,0,1)}
+  				else
+  				{var mainyy2=new Date(document.getElementById("searchyear").value,document.getElementById("searchmonth").value,document.getElementById("yl"+m).innerText)-new Date(1900,0,1)}
+  			}
+  						
+  			var nonglidate=Math.floor((mainyy2/24/3600/1000+0.23)%29.53059)
+  			if(nonglidate<=9)
+  			{document.getElementById("nl"+m).innerText="初"+"一二三四五六七八九十".charAt(nonglidate)}
+  			if(nonglidate>9&&nonglidate<19)
+  			{document.getElementById("nl"+m).innerText="十"+"一二三四五六七八九".charAt(nonglidate-10)}
+  			if(nonglidate==19)
+  			{document.getElementById("nl"+m).innerText="二十"}
+  			if(nonglidate>19)
+  			{document.getElementById("nl"+m).innerText="廿"+"一二三四五六七八九".charAt(nonglidate-20)}
+  			if(nonglidate==29)
+  			{document.getElementById("nl"+m).innerText="三十"}
+  		}
+
+  	}
+
+    function daycellhuoqu()//获取所选日的日期格，并修正切换日期时因月份大小的差异，而出现找不到的情况。比如31日转换到2月，但2月没有31日，故而需跳转到28日。
+    {
+    for(var ae=3;ae>=0;ae--)
+      {
+      for(var se=1;se<43;se++)
+        {  
+        var yld=document.getElementById("yl"+se).innerText          
+        var dtd=document.getElementById("dt"+se)
+        if(yld==suoxuanyldate&&dtd.style.color=="") //通过循环找到所选日在哪个日期格，且该日期格的字体是否没有颜色（如果有颜色即灰色，代表该格不是这个月的日期），继而执行日期选定函数。
+          {datexuanding(dtd)
+          return}
+        }
+      if(suoxuanyldate>28) //如果未找到所选日的日期格，则说明该月长比所选日的数字小，那么减小所选日，直到等同于该月月长才可能找到所选日的日期格。
+        {suoxuanyldate--}
+      }
+    }
+  				
+  	function datexuanding(std)//对当前选定的日期框进行颜色标记，记录日期并根据日期在左右大框中显示节日，八字，属相等详细信息。
+  	{
+  		for(var ss=1;ss<=42;ss++)
+  		{
+  			document.getElementById("yl"+ss).style.backgroundColor=""
+  			document.getElementById("nl"+ss).style.backgroundColor=""
+  		}
+  		document.getElementById(std.id.replace("dt","yl")).style.backgroundColor="#F93"
+  		document.getElementById(std.id.replace("dt","nl")).style.backgroundColor="#F93"
+  		suoxuanyldate=parseInt(document.getElementById(std.id.replace("dt","yl")).innerText)
+  		if(std.style.color!="")
+  			{
+  			if(suoxuanyldate>20)
+  			   {searchlastm()
+  			   return}
+  			else
+  			   {searchnextm()
+  			   return}
+  			} 
+  		var suoxuanylmonth=document.getElementById("searchmonth").value
+  		var suoxuanylyear=document.getElementById("searchyear").value
+  		var suoxuanylweek=new Date(suoxuanylyear,(suoxuanylmonth-1),suoxuanyldate).getDay()
+  		
+  		document.getElementById("noticemainyear").innerText=suoxuanylyear		
+  		
+  		document.getElementById("noticeyear").innerText=suoxuanylyear		
+  		document.getElementById("noticemonth").innerText=suoxuanylmonth
+  		document.getElementById("noticedate").innerText=suoxuanyldate
+  		if(suoxuanylweek<=0||suoxuanylweek>=6)
+  		{document.getElementById("noticedate").style.backgroundColor="#F66"}
+  		else
+  		{document.getElementById("noticedate").style.backgroundColor="#6C9"}
+  		document.getElementById("noticeweek").innerText='日一二三四五六'.charAt(suoxuanylweek)
+  		
+  		var mainshijiyear4=parseInt(suoxuanylyear)%4
+  		var mainshijiyear100=parseInt(suoxuanylyear)%100
+  		var mainshijiyear400=parseInt(suoxuanylyear)%400
+  		if(mainshijiyear4!=0)
+  		{var mainrunnianpanduan=0}
+  		else
+  		{
+  			if(mainshijiyear100==0)
+  			    if(mainshijiyear400==0)
+  		        {var mainrunnianpanduan=1}
+  		         else
+  			    {var mainrunnianpanduan=0}
+  		    else
+  			{var mainrunnianpanduan=1}
+  		}
+  				
+  		var mainyy1=parseInt(suoxuanylyear)-1984
+  		
+  		if(mainyy1>=0)
+  	    {var bennianniangan=mainyy1%10
+  		var benniannianzhi=mainyy1%12}
+  	    else
+  	    {var bennianniangan=mainyy1%10+10
+  		var benniannianzhi=mainyy1%12+12}
+  		
+  		document.getElementById("noticeniangan").innerText="甲乙丙丁戊己庚辛壬癸甲".charAt(bennianniangan)
+  		switch(bennianniangan)
+  		{
+  		  case 0:
+  		  document.getElementById("noticeniangan").style.color="#060"
+  	    break
+  			case 1:
+  		  document.getElementById("noticeniangan").style.color="#060"
+  	    break
+  		  case 2:
+  	    document.getElementById("noticeniangan").style.color="#FF5151"			
+  		  break
+  			case 3:
+  	    document.getElementById("noticeniangan").style.color="#FF5151"			
+  		  break
+  			case 4:
+  			document.getElementById("noticeniangan").style.color="#C60"
+  			break
+  			case 5:
+  			document.getElementById("noticeniangan").style.color="#C60"
+  			break
+  			case 6:
+  			document.getElementById("noticeniangan").style.color="#FF0"
+  			break
+  			case 7:
+  			document.getElementById("noticeniangan").style.color="#FF0"
+  			break
+  			case 8:
+  			document.getElementById("noticeniangan").style.color="#06F"
+  			break
+  			case 9:
+  			document.getElementById("noticeniangan").style.color="#06F"
+  			break
+  			case 10:
+  		  document.getElementById("noticeniangan").style.color="#060"
+  			break
+  		}
+  		document.getElementById("noticenianzhi").innerText="子丑寅卯辰巳午未申酉戌亥子".charAt(benniannianzhi)
+  		switch(benniannianzhi)
+  		{
+  		    case 0:
+  		    document.getElementById("noticenianzhi").style.color="#C60"
+  	    	break
+  			case 1:
+  			if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#CFF"}			
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{noticenianzhi.style.color="#000"}
+  	    	break
+  		    case 2:
+  	    	document.getElementById("noticenianzhi").style.color="#C60"			
+  		    break
+  			case 3:
+  	    	if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#FF5151"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#063"}		
+  		    break
+  			case 4:
+  			if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#CFF"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#000"}
+  			break
+  			case 5:
+  			if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#CFF"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#000"}
+  			break
+  			case 6:
+  			document.getElementById("noticenianzhi").style.color="#C60"
+  			break
+  			case 7:
+  			if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#FF5151"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#063"}	
+  			break
+  			case 8:
+  			document.getElementById("noticenianzhi").style.color="#C60"
+  			break
+  			case 9:
+  			if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#CFF"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#000"}
+  			break			
+  			case 10:
+  		    if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#FF5151"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#063"}	
+  	    	break
+  			case 11:
+  		    if(bennianniangan==0||bennianniangan==1||bennianniangan==2||bennianniangan==3||bennianniangan==4||bennianniangan==10)
+  		    {document.getElementById("noticenianzhi").style.color="#FF5151"}
+  			if(bennianniangan==5||bennianniangan==6||bennianniangan==7||bennianniangan==8||bennianniangan==9)
+  			{document.getElementById("noticenianzhi").style.color="#063"}	
+  	    	break
+  			case 12:
+  		    document.getElementById("noticenianzhi").style.color="#C60"
+  	    	break
+
+  		}
+  		noticeshengxiao.innerText="鼠牛虎兔龙蛇马羊猴鸡狗猪鼠".charAt(benniannianzhi)
+  		
+  		var mainjisuantoday=new Date(parseInt(suoxuanylyear),(parseInt(suoxuanylmonth)-1),parseInt(suoxuanyldate),23,59,59)
+  		
+  		var mainlichunshijian=mainyy1*0.2425+(23/24+29/1440)-Math.floor(mainyy1/4)+Math.floor((parseInt(suoxuanylyear)-2000)/100)-Math.floor((parseInt(suoxuanylyear)-2000)/400)+(mainrunnianpanduan-1)
+  		var mainyushuishijian=mainlichunshijian+1282123.2/24/3600-15
+  	  var mainjingzheshijian=mainlichunshijian+2572206/24/3600-30-mainrunnianpanduan
+  		var mainchunfenshijian=mainlichunshijian+3872845.2/24/3600-45-mainrunnianpanduan
+  		var mainqingmingshijian=mainlichunshijian+5183998.2/24/3600-60-mainrunnianpanduan
+  		var mainguyushijian=mainlichunshijian+6507252/24/3600-75-mainrunnianpanduan
+  		var mainlixiashijian=mainlichunshijian+7840937.4/24/3600-91-mainrunnianpanduan
+  		var mainxiaomanshijian=mainlichunshijian+9185044.8/24/3600-106-mainrunnianpanduan
+  		var mainmangzhongshijian=mainlichunshijian+10536271.8/24/3600-122-mainrunnianpanduan
+  		var mainxiazhishijian=mainlichunshijian+11893571.4/24/3600-137-mainrunnianpanduan
+  		var mainxiaoshushijian=mainlichunshijian+13252540.2/24/3600-153-mainrunnianpanduan
+  		var maindashushijian=mainlichunshijian+14611326.6/24/3600-169-mainrunnianpanduan
+  		var mainliqiushijian=mainlichunshijian+15965745.6/24/3600-185-mainrunnianpanduan
+  		var mainchushushijian=mainlichunshijian+17313981.6/24/3600-200-mainrunnianpanduan
+  		var mainbailushijian=mainlichunshijian+18652984.8/24/3600-216-mainrunnianpanduan
+  		var mainqiufenshijian=mainlichunshijian+19981639.2/24/3600-231-mainrunnianpanduan
+  		var mainhanlushijian=mainlichunshijian+21298824.6/24/3600-246-mainrunnianpanduan
+  		var mainshuangjiangshijian=mainlichunshijian+22604585.4/24/3600-261-mainrunnianpanduan
+  		var mainlidongshijian=mainlichunshijian+23899666.8/24/3600-276-mainrunnianpanduan
+  		var mainxiaoxueshijian=mainlichunshijian+25185430.8/24/3600-291-mainrunnianpanduan
+  		var maindaxueshijian=mainlichunshijian+26463900.6/24/3600-306-mainrunnianpanduan
+  		var maindongzhishijian=mainlichunshijian+27737457/24/3600-321-mainrunnianpanduan
+  		var mainxiaohanshijian=mainlichunshijian+29008905/24/3600-336-mainrunnianpanduan
+  		var maindahanshijian=mainlichunshijian+30281399.4/24/3600-350-mainrunnianpanduan
+  		var maingainianlichun=new Date(parseInt(suoxuanylyear),1,Math.floor(4+mainlichunshijian),Math.floor((4+mainlichunshijian)%1*24),Math.floor(((4+mainlichunshijian)%1*24)%1*60),Math.floor((((4+mainlichunshijian)%1*24)%1*60)%1*60))
+  		
+  		var maingainianyushui=new Date(parseInt(suoxuanylyear),1,Math.floor(19+mainyushuishijian),Math.floor((19+mainyushuishijian)%1*24),Math.floor(((19+mainyushuishijian)%1*24)%1*60),Math.floor((((19+mainyushuishijian)%1*24)%1*60)%1*60))
+  		
+  		var maingainianjingzhe=new Date(parseInt(suoxuanylyear),2,Math.floor(6+mainjingzheshijian),Math.floor((6+mainjingzheshijian)%1*24),Math.floor(((6+mainjingzheshijian)%1*24)%1*60),Math.floor((((6+mainjingzheshijian)%1*24)%1*60)%1*60))
+  		var maingainianchunfen=new Date(parseInt(suoxuanylyear),2,Math.floor(21+mainchunfenshijian),Math.floor((21+mainchunfenshijian)%1*24),Math.floor(((21+mainchunfenshijian)%1*24)%1*60),Math.floor((((21+mainchunfenshijian)%1*24)%1*60)%1*60))
+  		var maingainianqingming=new Date(parseInt(suoxuanylyear),3,Math.floor(5+mainqingmingshijian),Math.floor((5+mainqingmingshijian)%1*24),Math.floor(((5+mainqingmingshijian)%1*24)%1*60),Math.floor((((5+mainqingmingshijian)%1*24)%1*60)%1*60))	
+  		var maingainianguyu=new Date(parseInt(suoxuanylyear),3,Math.floor(20+mainguyushijian),Math.floor((20+mainguyushijian)%1*24),Math.floor(((20+mainguyushijian)%1*24)%1*60),Math.floor((((20+mainguyushijian)%1*24)%1*60)%1*60))
+  		var maingainianlixia=new Date(parseInt(suoxuanylyear),4,Math.floor(6+mainlixiashijian),Math.floor((6+mainlixiashijian)%1*24),Math.floor(((6+mainlixiashijian)%1*24)%1*60),Math.floor((((6+mainlixiashijian)%1*24)%1*60)%1*60))
+  		var maingainianxiaoman=new Date(parseInt(suoxuanylyear),4,Math.floor(21+mainxiaomanshijian),Math.floor((21+mainxiaomanshijian)%1*24),Math.floor(((21+mainxiaomanshijian)%1*24)%1*60),Math.floor((((21+mainxiaomanshijian)%1*24)%1*60)%1*60))
+  		var maingainianmangzhong=new Date(parseInt(suoxuanylyear),5,Math.floor(6+mainmangzhongshijian),Math.floor((6+mainmangzhongshijian)%1*24),Math.floor(((6+mainmangzhongshijian)%1*24)%1*60),Math.floor((((6+mainmangzhongshijian)%1*24)%1*60)%1*60))
+  		var maingainianxiazhi=new Date(parseInt(suoxuanylyear),5,Math.floor(21+mainxiazhishijian),Math.floor((21+mainxiazhishijian)%1*24),Math.floor(((21+mainxiazhishijian)%1*24)%1*60),Math.floor((((21+mainxiazhishijian)%1*24)%1*60)%1*60))
+  		var maingainianxiaoshu=new Date(parseInt(suoxuanylyear),6,Math.floor(7+mainxiaoshushijian),Math.floor((7+mainxiaoshushijian)%1*24),Math.floor(((7+mainxiaoshushijian)%1*24)%1*60),Math.floor((((7+mainxiaoshushijian)%1*24)%1*60)%1*60))
+  		var maingainiandashu=new Date(parseInt(suoxuanylyear),6,Math.floor(23+maindashushijian),Math.floor((23+maindashushijian)%1*24),Math.floor(((23+maindashushijian)%1*24)%1*60),Math.floor((((23+maindashushijian)%1*24)%1*60)%1*60))
+  		var maingainianliqiu=new Date(parseInt(suoxuanylyear),7,Math.floor(8+mainliqiushijian),Math.floor((8+mainliqiushijian)%1*24),Math.floor(((8+mainliqiushijian)%1*24)%1*60),Math.floor((((8+mainliqiushijian)%1*24)%1*60)%1*60))
+  		var maingainianchushu=new Date(parseInt(suoxuanylyear),7,Math.floor(23+mainchushushijian),Math.floor((23+mainchushushijian)%1*24),Math.floor(((23+mainchushushijian)%1*24)%1*60),Math.floor((((23+mainchushushijian)%1*24)%1*60)%1*60))
+  		var maingainianbailu=new Date(parseInt(suoxuanylyear),8,Math.floor(8+mainbailushijian),Math.floor((8+mainbailushijian)%1*24),Math.floor(((8+mainbailushijian)%1*24)%1*60),Math.floor((((8+mainbailushijian)%1*24)%1*60)%1*60))
+  		var maingainianqiufen=new Date(parseInt(suoxuanylyear),8,Math.floor(23+mainqiufenshijian),Math.floor((23+mainqiufenshijian)%1*24),Math.floor(((23+mainqiufenshijian)%1*24)%1*60),Math.floor((((23+mainqiufenshijian)%1*24)%1*60)%1*60))
+  		var maingainianhanlu=new Date(parseInt(suoxuanylyear),9,Math.floor(8+mainhanlushijian),Math.floor((8+mainhanlushijian)%1*24),Math.floor(((8+mainhanlushijian)%1*24)%1*60),Math.floor((((8+mainhanlushijian)%1*24)%1*60)%1*60))
+  		var maingainianshuangjiang=new Date(parseInt(suoxuanylyear),9,Math.floor(23+mainshuangjiangshijian),Math.floor((23+mainshuangjiangshijian)%1*24),Math.floor(((23+mainshuangjiangshijian)%1*24)%1*60),Math.floor((((23+mainshuangjiangshijian)%1*24)%1*60)%1*60))
+  		var maingainianlidong=new Date(parseInt(suoxuanylyear),10,Math.floor(7+mainlidongshijian),Math.floor((7+mainlidongshijian)%1*24),Math.floor(((7+mainlidongshijian)%1*24)%1*60),Math.floor((((7+mainlidongshijian)%1*24)%1*60)%1*60))
+  		var maingainianxiaoxue=new Date(parseInt(suoxuanylyear),10,Math.floor(22+mainxiaoxueshijian),Math.floor((22+mainxiaoxueshijian)%1*24),Math.floor(((22+mainxiaoxueshijian)%1*24)%1*60),Math.floor((((22+mainxiaoxueshijian)%1*24)%1*60)%1*60))
+  		var maingainiandaxue=new Date(parseInt(suoxuanylyear),11,Math.floor(7+maindaxueshijian),Math.floor((7+maindaxueshijian)%1*24),Math.floor(((7+maindaxueshijian)%1*24)%1*60),Math.floor((((7+maindaxueshijian)%1*24)%1*60)%1*60))
+  		var maingainiandongzhi=new Date(parseInt(suoxuanylyear),11,Math.floor(22+maindongzhishijian),Math.floor((22+maindongzhishijian)%1*24),Math.floor(((22+maindongzhishijian)%1*24)%1*60),Math.floor((((22+maindongzhishijian)%1*24)%1*60)%1*60))
+  		//小寒和大寒时间在明年1月，故而本年的小寒和大寒需减去一年时间
+  		var mainmingnianxiaohan=new Date((parseInt(suoxuanylyear)+1),0,Math.floor(6+mainxiaohanshijian),Math.floor((6+mainxiaohanshijian)%1*24),Math.floor(((6+mainxiaohanshijian)%1*24)%1*60),Math.floor
+  ((((6+mainxiaohanshijian)%1*24)%1*60)%1*60))
+          var maingainianxiaohan=new Date(mainmingnianxiaohan-365.2425*86400*1000)
+  		//日期的计算为毫秒为单位，同时最终结果为毫秒数，所以需要用new Date转为日期格式
+  		var mainmingniandahan=new Date((parseInt(suoxuanylyear)+1),0,Math.floor(20+maindahanshijian),Math.floor((20+maindahanshijian)%1*24),Math.floor(((20+maindahanshijian)%1*24)%1*60),Math.floor((((20+maindahanshijian)%1*24)%1*60)%1*60))
+  		var maingainiandahan=new Date(mainmingniandahan-365.2425*86400*1000)
+  		
+          nonticelichun.innerText=(maingainianlichun.getMonth()+1)+"月"+maingainianlichun.getDate()+"日"+maingainianlichun.toLocaleTimeString()+" GMT+8"
+          noticechunfen.innerText=(maingainianchunfen.getMonth()+1)+"月"+maingainianchunfen.getDate()+"日"+maingainianchunfen.toLocaleTimeString()
+  		noticechunfen.title="该年小寒时间:"+maingainianxiaohan.toLocaleString()+" GMT+8"+"\r\n该年大寒时间:"+maingainiandahan.toLocaleString()+" GMT+8"+"\r\n\r\n该年立春时间:"+maingainianlichun.toLocaleString()+" GMT+8"+"\r\n该年雨水时间:"+maingainianyushui.toLocaleString()+" GMT+8"+"\r\n该年惊蛰时间:"+maingainianjingzhe.toLocaleString()+" GMT+8"+"\r\n该年春分时间:"+maingainianchunfen.toLocaleString()+" GMT+8"+"\r\n该年清明时间:"+maingainianqingming.toLocaleString()+" GMT+8"+"\r\n该年谷雨时间:"+maingainianguyu.toLocaleString()+" GMT+8"
+  		noticexiazhi.innerText=(maingainianxiazhi.getMonth()+1)+"月"+maingainianxiazhi.getDate()+"日"+maingainianxiazhi.toLocaleTimeString()
+  		noticexiazhi.title="该年立夏时间:"+maingainianlixia.toLocaleString()+" GMT+8"+"\r\n该年小满时间:"+maingainianxiaoman.toLocaleString()+" GMT+8"+"\r\n该年芒种时间:"+maingainianmangzhong.toLocaleString()+" GMT+8"+"\r\n该年夏至时间:"+maingainianxiazhi.toLocaleString()+" GMT+8"+"\r\n该年小暑时间:"+maingainianxiaoshu.toLocaleString()+" GMT+8"+"\r\n该年大暑时间:"+maingainiandashu.toLocaleString()+" GMT+8"
+          noticeqiufen.innerText=(maingainianqiufen.getMonth()+1)+"月"+maingainianqiufen.getDate()+"日"+maingainianqiufen.toLocaleTimeString()
+  		noticeqiufen.title="该年立秋时间:"+maingainianliqiu.toLocaleString()+" GMT+8"+"\r\n该年处暑时间:"+maingainianchushu.toLocaleString()+" GMT+8"+"\r\n该年白露时间:"+maingainianbailu.toLocaleString()+" GMT+8"+"\r\n该年秋分时间:"+maingainianqiufen.toLocaleString()+" GMT+8"+"\r\n该年寒露时间:"+maingainianhanlu.toLocaleString()+" GMT+8"+"\r\n该年霜降时间:"+maingainianshuangjiang.toLocaleString()+" GMT+8"
+  		noticedongzhi.innerText=(maingainiandongzhi.getMonth()+1)+"月"+maingainiandongzhi.getDate()+"日"+maingainiandongzhi.toLocaleTimeString()
+  		noticedongzhi.title="该年立冬时间:"+maingainianlidong.toLocaleString()+" GMT+8"+"\r\n该年小雪时间:"+maingainianxiaoxue.toLocaleString()+" GMT+8"+"\r\n该年大雪时间:"+maingainiandaxue.toLocaleString()+" GMT+8"+"\r\n该年冬至时间:"+maingainiandongzhi.toLocaleString()+" GMT+8"+"\r\n明年小寒时间:"+mainmingnianxiaohan.toLocaleString()+" GMT+8"+"\r\n明年大寒时间:"+mainmingniandahan.toLocaleString()+" GMT+8"
+  		
+  		var bazijieguo=bazijisuan(suoxuanylyear,suoxuanylmonth,suoxuanyldate,0,mainjisuantoday,maingainianxiaohan,maingainianlichun,maingainianjingzhe,maingainianqingming,maingainianlixia,maingainianmangzhong,maingainianxiaoshu,maingainianliqiu,maingainianbailu,maingainianhanlu,maingainianlidong,maingainiandaxue)//传递年月日时参数，以及当前日期和节气日的参数，运行八字计算的函数并获得返回值的数组
+  		document.getElementById("mainniangan").innerText=bazijieguo[0]
+  		document.getElementById("mainnianzhi").innerText=bazijieguo[1]
+  		document.getElementById("mainyuegan").innerText=bazijieguo[2]
+  		document.getElementById("mainyuezhi").innerText=bazijieguo[3]
+  		document.getElementById("mainrigan").innerText=bazijieguo[4]
+  		document.getElementById("mainrizhi").innerText=bazijieguo[5]
+  		document.getElementById("mainshigan").innerText=bazijieguo[6]
+  		document.getElementById("mainshizhi").innerText=bazijieguo[7]
+  	}
+  		
+  	function bazijisuan(ylyear,ylmonth,yldate,ylhour,jisuantoday,gainianxiaohan,gainianlichun,gainianjingzhe,gainianqingming,gainianlixia,gainianmangzhong,gainianxiaoshu,gainianliqiu,gainianbailu,gainianhanlu,gainianlidong,gainiandaxue)//根据日期计算八字
+  	{
+  		var niangan,nianzhi,yuegan,yuezhi,rigan,rizhi,shigan,shizhi		
+  		var yy1=parseInt(ylyear)-1984
+  		var nianganjisuan=Math.floor(yy1%10)
+  		if(nianganjisuan<0)
+  		{var nianganjisuan=10+nianganjisuan}
+  		if(jisuantoday<gainianlichun)
+  		{nianganjisuan=nianganjisuan-1}
+  		
+  		if(nianganjisuan==-1)
+  		{niangan="癸"
+  		var yueganhehua=2}
+  		else
+  		{niangan="甲乙丙丁戊己庚辛壬癸".charAt(nianganjisuan)
+  		var yueganhehua="4680246802".charAt(nianganjisuan)}
+  		
+  		var nianzhijisuan=Math.floor(yy1%12)
+  		if(nianzhijisuan<0)
+  		{var nianzhijisuan=12+nianzhijisuan}
+  		if(jisuantoday<gainianlichun)
+  		{nianzhijisuan=nianzhijisuan-1}
+  		if(nianzhijisuan==-1)
+  		{nianzhi="亥"}
+  		else
+  		{nianzhi="子丑寅卯辰巳午未申酉戌亥".charAt(nianzhijisuan)}
+  		
+  		var yuezhijisuan=parseInt(ylmonth)
+  		switch(yuezhijisuan)
+  		{					
+  			case 1:
+  			yuezhi="丑"
+  			if(jisuantoday<gainianxiaohan)
+  			{yuezhi="子"
+  			yuezhijisuan=10}
+  			break
+  			case 2:
+  			yuezhi="寅"
+  			if(jisuantoday<gainianlichun)
+  			{yuezhi="丑"
+  			yuezhijisuan=1}
+  			break
+  			case 3:
+  			yuezhi="卯"
+  			if(jisuantoday<gainianjingzhe)
+  			{yuezhi="寅"
+  			yuezhijisuan=2}
+  			break
+  			case 4:
+  			yuezhi="辰"
+  			if(jisuantoday<gainianqingming)
+  			{yuezhi="卯"
+  			yuezhijisuan=3}
+  			break
+  			case 5:
+  			yuezhi="巳"
+  			if(jisuantoday<gainianlixia)
+  			{yuezhi="辰"
+  			yuezhijisuan=4}
+  			break
+  			case 6:
+  			yuezhi="午"
+  			if(jisuantoday<gainianmangzhong)
+  			{yuezhi="巳"
+  			yuezhijisuan=5}
+  			break
+  			case 7:
+  			yuezhi="未"
+  			if(jisuantoday<gainianxiaoshu)
+  			{yuezhi="午"
+  			yuezhijisuan=6}
+  			break
+  			case 8:
+  			yuezhi="申"
+  			if(jisuantoday<gainianliqiu)
+  			{yuezhi="未"
+  			yuezhijisuan=7}
+  			break
+  			case 9:
+  			yuezhi="酉"
+  			if(jisuantoday<gainianbailu)
+  			{yuezhi="申"
+  			yuezhijisuan=8}
+  			break
+  			case 10:
+  			yuezhi="戌"
+  			if(jisuantoday<gainianhanlu)
+  			{yuezhi="酉"
+  			yuezhijisuan=9}
+  			break
+  			case 11:
+  			yuezhi="亥"
+  			if(jisuantoday<gainianlidong)
+  			{yuezhi="戌"
+  			yuezhijisuan=10}
+  			break
+  			case 12:
+  			yuezhi="子"
+  			if(jisuantoday<gainiandaxue)
+  			{yuezhi="亥"
+  			yuezhijisuan=11}
+  			break	
+  		}
+  		var yueganjisuan=(yuezhijisuan+parseInt(yueganhehua)+6)%10
+  		if(jisuantoday<gainianlichun)
+  		{yueganjisuan=yueganjisuan+2}
+  		yuegan="甲乙丙丁戊己庚辛壬癸甲乙".charAt(yueganjisuan)
+  		
+  		var xiangchariqi=(jisuantoday-new Date(1984,2,31))/3600/24/1000
+  		var riganjisuan=xiangchariqi%10
+  		if(riganjisuan<0)
+  		{riganjisuan=10+riganjisuan}
+  		rigan="甲乙丙丁戊己庚辛壬癸".charAt(riganjisuan)
+  		var shiganhehua="4680246802".charAt(riganjisuan)
+  		
+  		var rizhijisuan=xiangchariqi%12
+  		if(rizhijisuan<0)
+  		{rizhijisuan=12+rizhijisuan}
+  		rizhi="子丑寅卯辰巳午未申酉戌亥子".charAt(rizhijisuan)
+  		
+  		var shizhijisuan=Math.ceil(parseInt(ylhour)/2)
+  		shizhi="子丑寅卯辰巳午未申酉戌亥子".charAt(shizhijisuan)
+  		
+  		var shiganjisuan=(shizhijisuan+parseInt(shiganhehua)+6)%10		
+  		shigan="甲乙丙丁戊己庚辛壬癸甲乙".charAt(shiganjisuan)
+          
+      return [niangan,nianzhi,yuegan,yuezhi,rigan,rizhi,shigan,shizhi]		
+  	}
+  	
+  	function changebazi()//左下公历转换八字计算器
+  	{	
+  	  if(document.getElementById("subyear").value=="")
+  		{document.getElementById("subyear").value=1984}
+  		if(document.getElementById("submonth").value=="")
+  		{document.getElementById("submonth").value=1}
+  		if(document.getElementById("subdate").value=="")
+  		{document.getElementById("subdate").value=1}
+  		if(document.getElementById("subhour").value=="")
+  		{document.getElementById("subhour").value=0}
+  		if(document.getElementById("submin").value=="")
+  		{document.getElementById("submin").value=0}
+  	    switch(document.getElementById("subgongyuan").value)
+  		  {
+  			case "1":
+  			var lishiyear=-(parseInt(document.getElementById("subyear").value))
+        if(lishiyear==0){lishiyear=-1}//修正历史年为0年时，强制为-1年
+  			var shijiyear=lishiyear+1
+  			break
+  		  case "0":
+  			var lishiyear=parseInt(document.getElementById("subyear").value)
+        if(lishiyear==0){lishiyear=1}//修正历史年为0年时，强制为1年
+  		  var shijiyear=lishiyear
+  			break
+  			}
+  		var shijiyear4=shijiyear%4
+  		var shijiyear100=shijiyear%100
+  		var shijiyear400=shijiyear%400
+  		if(shijiyear4!=0)
+  		{var runnianpanduan=0}
+  		else
+  		{
+  			if(shijiyear100==0)
+  			    if(shijiyear400==0)
+  		        {var runnianpanduan=1}
+  		         else
+  			    {var runnianpanduan=0}
+  		    else
+  			{var runnianpanduan=1}
+  		}
+  		
+  		document.getElementById("waringlb").innerText=""
+  		document.getElementById("waringlb").style.color="#F00"
+  		document.getElementById("subniangan").innerText=""
+  		document.getElementById("subnianzhi").innerText=""
+  		document.getElementById("subyuegan").innerText=""
+  		document.getElementById("subyuezhi").innerText=""
+  		document.getElementById("subrigan").innerText=""
+  		document.getElementById("subrizhi").innerText=""
+  		document.getElementById("subshigan").innerText=""
+  		document.getElementById("subshizhi").innerText=""		
+  		
+  		if(parseInt(document.getElementById("subyear").value)==0||parseInt(document.getElementById("submonth").value)==0||parseInt(document.getElementById("submonth").value)>12||parseInt(document.getElementById("subdate").value)==0||parseInt(document.getElementById("subdate").value)>31||parseInt(document.getElementById("subhour").value)>23||parseInt(document.getElementById("submin").value)>59)
+  		{document.getElementById("waringlb").innerText="Waring! 日期错误(年1-9999,月1-12,日1-31,时0-23,分0-59)"}
+  		else
+  		{
+  		var monthengligh=parseInt(document.getElementById("submonth").value)-1
+  		if(parseInt(document.getElementById("submonth").value)!=2)
+  		{		
+  		    if(parseInt(document.getElementById("subdate").value)>montharray[monthengligh]&&parseInt(document.getElementById("subdate").value)<32)		
+  		    {document.getElementById("waringlb").innerText="Waring! 该月为小月,没有31日"}
+  		}
+  		else
+  		{
+  		var eryue=parseInt(montharray[1])+runnianpanduan
+  		    if(parseInt(document.getElementById("subdate").value)>eryue&&parseInt(document.getElementById("subdate").value)<30)
+  		    {document.getElementById("waringlb").innerText="Waring! 该年为平年，没有29日"}
+  		    if(parseInt(document.getElementById("subdate").value)>eryue&&parseInt(document.getElementById("subdate").value)>=30&&parseInt(document.getElementById("subdate").value)<32)
+  		    {document.getElementById("waringlb").innerText="Waring! 2月没有30日和31日"}			
+  		}		
+  		}
+  				
+  		var yy1=shijiyear-1984
+  		var jisuantoday=new Date(shijiyear,(parseInt(document.getElementById("submonth").value)-1),parseInt(document.getElementById("subdate").value),parseInt(document.getElementById("subhour").value),parseInt(document.getElementById("submin").value))
+  		jisuantoday.setFullYear(shijiyear)  //为了修正公元0~99年默认为1900年的问题，强制设置年份为完整年份
+  		jisuantoday.setMonth(parseInt(document.getElementById("submonth").value)-1)
+  		jisuantoday.setDate(parseInt(document.getElementById("subdate").value))//以上两条皆为修正公元0年（-1年）因自动判定为1900年而变成平年没有29日自动变成3月1日的问题，故而重新对月份和日期赋值。
+  		if(document.getElementById("waringlb").innerText=="")		
+  		{
+  		 document.getElementById("waringlb").style.color="#090"
+  		 document.getElementById("waringlb").innerText="儒略日JD = "+((jisuantoday-new Date(-4713,10,24,20,0))/3600/24/1000).toFixed(1)+" "+" 基于2000年儒略日J2000 = "+((jisuantoday-new Date(2000,0,1,20,0))/3600/24/1000).toFixed(1)//儒略日基准时间为+0时区的时间，而我们的计算时间为+8时区，故而此处应修正基准时区的时差，即+8小时。
+  		}
+  		
+  		var lichunshijian=yy1*0.2425+(23/24+29/1440)-Math.floor(yy1/4)+Math.floor((shijiyear-2000)/100)-Math.floor((shijiyear-2000)/400)+(runnianpanduan-1)
+  		var jingzheshijian=parseInt(0)
+  		var qingmingshijian=parseInt(0)
+  		var lixiashijian=parseInt(0)
+  		var mangzhongshijian=parseInt(0)
+  		var xiaoshushijian=parseInt(0)
+  		var liqiushijian=parseInt(0)
+  		var bailushijian=parseInt(0)
+  		var hanlushijian=parseInt(0)
+  		var lidongshijian=parseInt(0)
+  		var daxueshijian=parseInt(0)
+  		var xiaohanshijian=parseInt(0)
+  		var gainianlichun=new Date(shijiyear,1,Math.floor(4+lichunshijian),Math.floor((4+lichunshijian)%1*24),Math.floor(((4+lichunshijian)%1*24)%1*60),Math.floor((((4+lichunshijian)%1*24)%1*60)%1*60))
+  		gainianlichun.setFullYear(shijiyear)//强制设置年份为完整年份
+  		
+  		var gainianjingzhe=new Date(shijiyear,2,Math.floor(6+jingzheshijian),Math.floor((6+jingzheshijian)%1*24),Math.floor(((6+jingzheshijian)%1*24)%1*60),Math.floor((((6+jingzheshijian)%1*24)%1*60)%1*60))
+  		gainianjingzhe.setFullYear(shijiyear)			
+  		var gainianqingming=new Date(shijiyear,3,Math.floor(5+qingmingshijian),Math.floor((5+qingmingshijian)%1*24),Math.floor(((5+qingmingshijian)%1*24)%1*60),Math.floor((((5+qingmingshijian)%1*24)%1*60)%1*60))
+  		gainianqingming.setFullYear(shijiyear)
+  		var gainianlixia=new Date(shijiyear,4,Math.floor(6+lixiashijian),Math.floor((6+lixiashijian)%1*24),Math.floor(((6+lixiashijian)%1*24)%1*60),Math.floor((((6+lixiashijian)%1*24)%1*60)%1*60))
+  		gainianlixia.setFullYear(shijiyear)
+  		var gainianmangzhong=new Date(shijiyear,5,Math.floor(6+mangzhongshijian),Math.floor((6+mangzhongshijian)%1*24),Math.floor(((6+mangzhongshijian)%1*24)%1*60),Math.floor((((6+mangzhongshijian)%1*24)%1*60)%1*60))
+  		gainianmangzhong.setFullYear(shijiyear)
+  		var gainianxiaoshu=new Date(shijiyear,6,Math.floor(7+xiaoshushijian),Math.floor((7+xiaoshushijian)%1*24),Math.floor(((7+xiaoshushijian)%1*24)%1*60),Math.floor((((7+xiaoshushijian)%1*24)%1*60)%1*60))
+  		gainianxiaoshu.setFullYear(shijiyear)
+  		var gainianliqiu=new Date(shijiyear,7,Math.floor(8+liqiushijian),Math.floor((8+liqiushijian)%1*24),Math.floor(((8+liqiushijian)%1*24)%1*60),Math.floor((((8+liqiushijian)%1*24)%1*60)%1*60))
+  		gainianliqiu.setFullYear(shijiyear)
+  		var gainianbailu=new Date(shijiyear,8,Math.floor(8+bailushijian),Math.floor((8+bailushijian)%1*24),Math.floor(((8+bailushijian)%1*24)%1*60),Math.floor((((8+bailushijian)%1*24)%1*60)%1*60))
+  		gainianbailu.setFullYear(shijiyear)
+  		var gainianhanlu=new Date(shijiyear,9,Math.floor(8+hanlushijian),Math.floor((8+hanlushijian)%1*24),Math.floor(((8+hanlushijian)%1*24)%1*60),Math.floor((((8+hanlushijian)%1*24)%1*60)%1*60))
+  		gainianhanlu.setFullYear(shijiyear)
+  		var gainianlidong=new Date(shijiyear,10,Math.floor(7+lidongshijian),Math.floor((7+lidongshijian)%1*24),Math.floor(((7+lidongshijian)%1*24)%1*60),Math.floor((((7+lidongshijian)%1*24)%1*60)%1*60))
+  		gainianlidong.setFullYear(shijiyear)
+  		var gainiandaxue=new Date(shijiyear,11,Math.floor(7+daxueshijian),Math.floor((7+daxueshijian)%1*24),Math.floor(((7+daxueshijian)%1*24)%1*60),Math.floor((((7+daxueshijian)%1*24)%1*60)%1*60))
+  		gainiandaxue.setFullYear(shijiyear)
+  		var mingnianxiaohan=new Date(shijiyear+1,0,Math.floor(6+xiaohanshijian),Math.floor((6+xiaohanshijian)%1*24),Math.floor(((6+xiaohanshijian)%1*24)%1*60),Math.floor((((6+xiaohanshijian)%1*24)%1*60)%1*60))
+  		mingnianxiaohan.setFullYear(shijiyear+1)
+  		var gainianxiaohan=new Date(mingnianxiaohan-365.2425*86400*1000)
+
+      if(shijiyear<=0)
+      {
+        document.getElementById("subtable").title="该年小寒时间为："+(gainianxiaohan.getFullYear()-1)+"年"+(gainianxiaohan.getMonth()+1)+"月"+gainianxiaohan.getDate()+"日"+gainianxiaohan.getHours()+":"+gainianxiaohan.getMinutes()+":"+gainianxiaohan.getSeconds()+" GMT+8"+"\r\n该年立春时间为："+(gainianlichun.getFullYear()-1)+"年"+(gainianlichun.getMonth()+1)+"月"+gainianlichun.getDate()+"日"+gainianlichun.getHours()+":"+gainianlichun.getMinutes()+":"+gainianlichun.getSeconds()+" GMT+8"+"\r\n明年小寒时间为："+(mingnianxiaohan.getFullYear()-1)+"年"+(mingnianxiaohan.getMonth()+1)+"月"+mingnianxiaohan.getDate()+"日"+mingnianxiaohan.getHours()+":"+mingnianxiaohan.getMinutes()+":"+mingnianxiaohan.getSeconds()+" GMT+8"//此处采取笨办法逐个字段获取而不使用totoLocalString()，因为对于公元70年之前的日期，IE中toLocaleString()方法会无法识别或识别错误，只能使用UTC格式显示，但是UTC的时间需要修正时差。故而为了兼容性，只能采取逐字段获取。
+        if(mingnianxiaohan.getFullYear()==1)
+        {document.getElementById("subtable").title="该年小寒时间为："+(gainianxiaohan.getFullYear()-1)+"年"+(gainianxiaohan.getMonth()+1)+"月"+gainianxiaohan.getDate()+"日"+gainianxiaohan.getHours()+":"+gainianxiaohan.getMinutes()+":"+gainianxiaohan.getSeconds()+" GMT+8"+"\r\n该年立春时间为："+(gainianlichun.getFullYear()-1)+"年"+(gainianlichun.getMonth()+1)+"月"+gainianlichun.getDate()+"日"+gainianlichun.getHours()+":"+gainianlichun.getMinutes()+":"+gainianlichun.getSeconds()+" GMT+8"+"\r\n明年小寒时间为："+mingnianxiaohan.getFullYear()+"年"+(mingnianxiaohan.getMonth()+1)+"月"+mingnianxiaohan.getDate()+"日"+mingnianxiaohan.getHours()+":"+mingnianxiaohan.getMinutes()+":"+mingnianxiaohan.getSeconds()+" GMT+8"}//当明年小寒的年份是公元后的年份即1年时，此时明年小寒的年份不需要再通过-1来修正年份。
+      }
+      else
+      {document.getElementById("subtable").title="该年小寒时间为："+gainianxiaohan.getFullYear()+"年"+(gainianxiaohan.getMonth()+1)+"月"+gainianxiaohan.getDate()+"日"+gainianxiaohan.getHours()+":"+gainianxiaohan.getMinutes()+":"+gainianxiaohan.getSeconds()+" GMT+8"+"\r\n该年立春时间为："+gainianlichun.getFullYear()+"年"+(gainianlichun.getMonth()+1)+"月"+gainianlichun.getDate()+"日"+gainianlichun.getHours()+":"+gainianlichun.getMinutes()+":"+gainianlichun.getSeconds()+" GMT+8"+"\r\n明年小寒时间为："+mingnianxiaohan.getFullYear()+"年"+(mingnianxiaohan.getMonth()+1)+"月"+mingnianxiaohan.getDate()+"日"+mingnianxiaohan.getHours()+":"+mingnianxiaohan.getMinutes()+":"+mingnianxiaohan.getSeconds()+" GMT+8"}
+  		
+  		var bazijieguo=bazijisuan(shijiyear,document.getElementById("submonth").value,document.getElementById("subdate").value,document.getElementById("subhour").value,jisuantoday,gainianxiaohan,gainianlichun,gainianjingzhe,gainianqingming,gainianlixia,gainianmangzhong,gainianxiaoshu,gainianliqiu,gainianbailu,gainianhanlu,gainianlidong,gainiandaxue)//传递年月日时参数，以及当前日期和节气日的参数，运行八字计算的函数并获得返回值的数组
+  		document.getElementById("subniangan").innerText=bazijieguo[0]
+  		document.getElementById("subnianzhi").innerText=bazijieguo[1]
+  		document.getElementById("subyuegan").innerText=bazijieguo[2]
+  		document.getElementById("subyuezhi").innerText=bazijieguo[3]
+  		document.getElementById("subrigan").innerText=bazijieguo[4]
+  		document.getElementById("subrizhi").innerText=bazijieguo[5]
+  		document.getElementById("subshigan").innerText=bazijieguo[6]
+  		document.getElementById("subshizhi").innerText=bazijieguo[7]
+  	}
+  		
+  	function rulichange()//左下儒略历转换公历计算器
+  	{
+  		if(document.getElementById("ruliyear").value=="")
+  		{document.getElementById("ruliyear").value=1}
+  		if(rulimonth.value=="")
+  		{rulimonth.value=1}
+  		if(rulidate.value=="")
+  		{rulidate.value=1}
+  	    switch(document.getElementById("ruligongyuan").value)
+  		{
+  			case "1":
+  			var lishiruliyear=-(parseInt(document.getElementById("ruliyear").value))
+  			var shijiruliyear=lishiruliyear+1
+  			break
+  		    case "0":
+  			var lishiruliyear=parseInt(document.getElementById("ruliyear").value)
+  		    var shijiruliyear=lishiruliyear
+  			break
+  			}
+  		var shijiruliyear4=shijiruliyear%4
+  		var shijiruliyear100=shijiruliyear%100
+  		var shijiruliyear400=shijiruliyear%400
+  		if(shijiruliyear4!=0)
+  		{var rulirunnianpanduan=0}
+  		else
+  		{var rulirunnianpanduan=1}
+  		
+  		waringgelili.innerText=""
+  		waringgelili.style.color="#F00"
+  		if(parseInt(document.getElementById("ruliyear").value)==0||parseInt(rulimonth.value)==0||parseInt(rulimonth.value)>12||parseInt(rulidate.value)==0||parseInt(rulidate.value)>31)
+  		{waringgelili.innerText="Waring! 日期错误(年1-4713,月1-12,日1-31)"}
+  		else
+  		{
+  		var rulimonthengligh=parseInt(rulimonth.value)-1
+  		if(parseInt(rulimonth.value)!=2)
+  		{		
+  		    if(parseInt(rulidate.value)>montharray[rulimonthengligh]&&parseInt(rulidate.value)<32)		
+  		    {waringgelili.innerText="Waring! 该月为小月,没有31日"}
+  		}
+  		else
+  		{
+  		var rulieryue=parseInt(montharray[1])+rulirunnianpanduan
+  		    if(parseInt(rulidate.value)>rulieryue&&parseInt(rulidate.value)<30)
+  		    {waringgelili.innerText="Waring! 该年为儒略历平年，没有29日"}
+  		    if(parseInt(rulidate.value)>rulieryue&&parseInt(rulidate.value)>=30&&parseInt(rulidate.value)<32)
+  		    {waringgelili.innerText="Waring! 2月没有30日和31日"}			
+  		}		
+  		}				
+  		var rulitodate=new Date(shijiruliyear,(parseInt(rulimonth.value)-1),parseInt(rulidate.value))	
+  		rulitodate.setFullYear(shijiruliyear)//修正小于99的年份自动变成1900年后的问题
+  		rulitodate.setMonth(parseInt(rulimonth.value)-1)
+  		rulitodate.setDate(rulidate.value)//以上两条皆为修正公元0年（-1年）因自动判定为1900年而变成平年没有29日自动变成3月1日的问题，故而重新对月份和日期赋值。
+  		var rulitomonth=rulitodate.getMonth()
+  		var rulitori=rulitodate.getDate()
+  		var ruliqidian=new Date(-4712,0,1)
+  		var rulizhongdian=new Date(1582,9,4)
+  		if(rulitodate<ruliqidian||rulitodate>rulizhongdian)
+  		{waringgelili.innerText="请输入-4713年1月1日至1582年10月4日的儒略历日期"}
+  		
+  		if(waringgelili.innerText=="")
+  		{
+  			var gonglitodate=rulitodate//该赋值只为转移数据，因为后面要修改该时间，不能影响之前变量的参数。
+  			gonglitodate.setDate(gonglitodate.getDate()-Math.floor((1600-shijiruliyear)/100)+Math.floor((1600-shijiruliyear)/400)+10)//加上非400年的百年闰年即相差日期
+  			if(shijiruliyear100==0&&shijiruliyear400!=0)
+  			{
+  				if(rulitomonth>1)
+  				{gonglitodate.setDate(gonglitodate.getDate()+1)}//修正未超过2月29日日期，不增加此年的闰差				
+  				if(rulimonth.value=="2"&&rulidate.value=="29")
+  				{gonglitodate.setDate(gonglitodate.getDate()-1)}
+  //修正2月29日被自动视为3月1日而减回上面不增加的闰差
+  			}
+  			var gonglitoyear=parseInt(gonglitodate.getFullYear())			
+  			if(gonglitoyear<=0)
+  			{waringgelili.innerText="现代公历（格里历）： "+(gonglitodate.getFullYear()-1)+"年 "+(gonglitodate.getMonth()+1)+"月 "+gonglitodate.getDate()+"日"+" (基于GMT+0时区)"}
+  			else
+  			{waringgelili.innerText="现代公历（格里历）： "+gonglitodate.getFullYear()+"年 "+(gonglitodate.getMonth()+1)+"月 "+gonglitodate.getDate()+"日"+" (基于GMT+0时区)"}
+  		    waringgelili.style.color="#60C"
+  		}
+  	}
+  		
+     function ruluerichange()//右下儒略日转换儒略历和格里历计算器
+     {
+  	   document.getElementById("rulueritorulueli").innerText=""
+  	   if(document.getElementById("rulueri").value=="")
+  	   {document.getElementById("rulueri").value=0}
+  	   var yanzhengshouzi=document.getElementById("rulueri").value.substring(0,1)
+  	   if(yanzhengshouzi==".")
+  	   {document.getElementById("rulueri").value="0"+document.getElementById("rulueri").value}//验证首字符如果是小数点时，自动在前面添加0。
+  	   var fudianxiuzheng=parseFloat(document.getElementById("rulueri").value)
+  	   rulueri11=(document.getElementById("rulueri").value)%1//取余判断有没有小数。
+  	   if(rulueri11!=0)
+  	   {document.getElementById("rulueri").value=fudianxiuzheng.toFixed(1)}//如果有小数，则只保留1位。
+  	   else
+  	   {document.getElementById("rulueri").value=fudianxiuzheng}
+  	   var geliliqidian=new Date(-4713,10,24,12,0)
+  	   var newgelili=geliliqidian
+  	   newgelili.setDate(geliliqidian.getDate()+parseInt(document.getElementById("rulueri").value))//日会自动累进到月和年，故而只需增加日，就可以完整设置日期。
+  	   newgelili.setHours(geliliqidian.getHours()+(document.getElementById("rulueri").value%1)*24)
+  	   var geliliyear=newgelili.getFullYear()	   
+       if(document.getElementById("rulueri").value>9999999.0) 
+       {document.getElementById("rulueritogelili").innerText="已超出最大计算范围，请输入0~9999999.0的儒略日数"}
+       else if(geliliyear<=0)
+       {document.getElementById("rulueritogelili").innerText="格里历 ："+(newgelili.getFullYear()-1)+"年 "+(newgelili.getMonth()+1)+"月 "+newgelili.getDate()+"日 "+newgelili.getHours()+"时"+" (基于GMT+0时区)"}//显示公元前的格里历日期。
+       else
+       {document.getElementById("rulueritogelili").innerText="格里历 ："+newgelili.getFullYear()+"年 "+(newgelili.getMonth()+1)+"月 "+newgelili.getDate()+"日 "+newgelili.getHours()+"时"+" (基于GMT+0时区)"}//显示公元后的格里历日期。
+
+  	   if(document.getElementById("rulueri").value<2299160.5)
+  	   {
+  		  var ruligeliruncha=Math.floor((1600-newgelili.getFullYear())/100)-Math.floor((1600-newgelili.getFullYear())/400)-10//计算非百年的闰差，最后减去人为调整的10天
+  		  var newrulueli=newgelili
+  		  newrulueli.setDate(newgelili.getDate()+ruligeliruncha)
+  		  newrulueliyear=newrulueli.getFullYear()
+  		  newruluelimonth=newrulueli.getMonth()
+  		  newruluelidate=newrulueli.getDate()
+  		  newrulueliyear100=newrulueli.getFullYear()%100
+  		  newrulueliyear400=newrulueli.getFullYear()%400
+  		  if(newrulueliyear100==0&&newrulueliyear400!=0)
+  			{				
+  				if(newruluelimonth=="2"&&newruluelidate=="1")//修正2月29日被自动视为3月1日，故而强制变成2月29日,并且强制结束函数不继续下面的显示而覆盖。
+  				{
+  					if(newrulueliyear<=0)
+  					{document.getElementById("rulueritorulueli").innerText="儒略历 ："+(newrulueli.getFullYear()-1)+"年 "+"2月 "+"29日 "+newrulueli.getHours()+"时"+" (基于GMT+0时区)"}//显示公元前的儒略历日期。
+  					else
+  					{document.getElementById("rulueritorulueli").innerText="儒略历 ："+(newrulueli.getFullYear())+"年 "+"2月 "+"29日 "+newrulueli.getHours()+"时"+" (基于GMT+0时区)"}//显示公元前的儒略历日期。
+  				return//强制结束函数不继续下面的显示而覆盖。
+          }
+          if(newruluelimonth>1)
+  				{newrulueli.setDate(newrulueli.getDate()-1)}//修正超过2月29日，不增加此年的闰差,前移一日
+  			}
+  		  if(newrulueliyear<=0)
+  		  {document.getElementById("rulueritorulueli").innerText="儒略历 ："+(newrulueli.getFullYear()-1)+"年 "+(newrulueli.getMonth()+1)+"月 "+newrulueli.getDate()+"日 "+newrulueli.getHours()+"时"+" (基于GMT+0时区)"}//显示公元前的儒略历日期。
+  		  else
+  		  {document.getElementById("rulueritorulueli").innerText="儒略历 ："+newrulueli.getFullYear()+"年 "+(newrulueli.getMonth()+1)+"月 "+newrulueli.getDate()+"日 "+newrulueli.getHours()+"时"+" (基于GMT+0时区)"}//显示公元前的儒略历日期。
+  	   }
+  	   else
+  	   {document.getElementById("rulueritorulueli").innerText="已超出儒略历的年限"}
+  	 }
+  </script>
+</body>
+</html>
